@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: anabasisdemo-anabasis-demo-trade-update-actor
+    release: "28"
+    group: anabasisdemo
+  name: anabasisdemo-anabasis-demo-trade-update-actor
+  namespace: anabasisdemo
+spec:
+  selector:
+    matchLabels:
+      app: anabasisdemo-anabasis-demo-trade-update-actor
+      release: "28"
+      group: anabasisdemo
+  template:
+    metadata:
+      labels:
+        app: anabasisdemo-anabasis-demo-trade-update-actor
+        release: "28"
+        group: anabasisdemo
+    spec:
+      containers:
+      - env:
+        - name: config
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        image: registry.hub.docker.com/thomasraynal/anabasisdemo-anabasis-demo-trade-update-actor:28-master
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 60
+          timeoutSeconds: 30
+        name: anabasisdemo-anabasis-demo-trade-update-actor
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 20
+          timeoutSeconds: 15
+      imagePullSecrets:
+      - name: registrysecret

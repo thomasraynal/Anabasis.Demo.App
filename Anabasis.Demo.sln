@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.MarketData.Actor", "Anabasis.Demo.MarketData.Actor\Anabasis.Demo.MarketData.Actor.csproj", "{4ABBC911-B2C3-4D13-9F92-23084BE322B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.Trade.Actor", "Anabasis.Demo.Trade.Actor\Anabasis.Demo.Trade.Actor.csproj", "{DA6926E1-51A8-4538-AD2D-7836FB2BF714}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.Trade.Api", "Anabasis.Demo.Trade.Api\Anabasis.Demo.Trade.Api.csproj", "{FCD1C480-4F85-4776-8111-79B3D0B69A49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.Trade.Update.Actor", "Anabasis.Demo.Trade.Update.Actor\Anabasis.Demo.Trade.Update.Actor.csproj", "{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.Common", "Anabasis.Demo.Common\Anabasis.Demo.Common.csproj", "{33304FA2-179E-48AC-926C-84071C6E0F5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DAA43B7-8EBB-43AA-AA4F-1433A676AC0F}"
+	ProjectSection(SolutionItems) = preProject
+		BuildAndDeploy.cmd = BuildAndDeploy.cmd
+		BuildAndDeploy_PROD.cmd = BuildAndDeploy_PROD.cmd
+		configs\config.app.dockercompose.json = configs\config.app.dockercompose.json
+		configs\config.app.production.json = configs\config.app.production.json
+		configs\config.group.dockercompose.json = configs\config.group.dockercompose.json
+		configs\config.group.json = configs\config.group.json
+		configs\config.group.production.json = configs\config.group.production.json
+		Directory.Build.props = Directory.Build.props
+		docker-compose-full.yaml = docker-compose-full.yaml
+		docker-compose-infra-only.yaml = docker-compose-infra-only.yaml
+		infra\kube-infra.yaml = infra\kube-infra.yaml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.Desktop", "Anabasis.Demo.Desktop\Anabasis.Demo.Desktop.csproj", "{E7DB7336-4BF3-47B9-8BB6-101919DCF496}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.MarketData.Bus", "Anabasis.Demo.MarketData.Bus\Anabasis.Demo.MarketData.Bus.csproj", "{0DBE1EC7-4151-45DF-97B4-74904702F86D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Debug|x64.Build.0 = Debug|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Release|x64.ActiveCfg = Release|Any CPU
+		{4ABBC911-B2C3-4D13-9F92-23084BE322B8}.Release|x64.Build.0 = Release|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Debug|x64.Build.0 = Debug|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Release|x64.ActiveCfg = Release|Any CPU
+		{DA6926E1-51A8-4538-AD2D-7836FB2BF714}.Release|x64.Build.0 = Release|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Debug|x64.Build.0 = Debug|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Release|x64.ActiveCfg = Release|Any CPU
+		{FCD1C480-4F85-4776-8111-79B3D0B69A49}.Release|x64.Build.0 = Release|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Debug|x64.Build.0 = Debug|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Release|x64.ActiveCfg = Release|Any CPU
+		{3365EB7B-5DA1-4D53-956C-F3FFC6D3470E}.Release|x64.Build.0 = Release|Any CPU
+		{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC19259A-F39F-4F89-BC14-9EF7AF9D5335}.Release|x64.Build.0 = Release|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Debug|x64.Build.0 = Debug|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Release|x64.ActiveCfg = Release|Any CPU
+		{33304FA2-179E-48AC-926C-84071C6E0F5A}.Release|x64.Build.0 = Release|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Debug|x64.Build.0 = Debug|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Release|x64.ActiveCfg = Release|Any CPU
+		{E7DB7336-4BF3-47B9-8BB6-101919DCF496}.Release|x64.Build.0 = Release|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Debug|x64.Build.0 = Debug|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Release|x64.ActiveCfg = Release|Any CPU
+		{0DBE1EC7-4151-45DF-97B4-74904702F86D}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {735F3A18-4A32-45E9-B41A-4860D62C27E7}
+	EndGlobalSection
+EndGlobal

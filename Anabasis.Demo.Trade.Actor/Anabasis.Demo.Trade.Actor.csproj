@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Anabasis.Demo.Actor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="config.app.dockercompose.json" />
+    <None Remove="config.app.production.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\configs\config.group.dockercompose.json" Link="config.group.dockercompose.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\configs\config.group.json" Link="config.group.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\configs\config.group.production.json" Link="config.group.production.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.app.dockercompose.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.app.production.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+    <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+  </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Anabasis.Demo.Common\Anabasis.Demo.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="config.app.dockercompose.json" />
+      <Resource Include="config.app.production.json" />
+    </ItemGroup>
+ 
+
+  <ItemGroup>
+    <None Update="config.app.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

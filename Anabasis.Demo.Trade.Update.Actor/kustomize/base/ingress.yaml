@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: anabasisdemo-anabasis-demo-trade-update-actor
+    group: anabasisdemo
+  name: ingress-anabasisdemo-anabasis-demo-trade-update-actor
+  namespace: anabasisdemo
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: svc-anabasisdemo-anabasis-demo-trade-update-actor
+            port:
+              name: http
+        path: /anabasis-demo-trade-update-actor/v1
+        pathType: ImplementationSpecific

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Anabasis.Demo.Trade.Actor": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DockerCompose"
+      }
+    }
+  }
+}

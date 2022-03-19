@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Anabasis.Api" Version="$(AnabasisVersion)" />
+    <PackageReference Include="Anabasis.Common" Version="$(AnabasisVersion)" />
+    <PackageReference Include="Anabasis.EntityFramework" Version="$(AnabasisVersion)" />
+    <PackageReference Include="Anabasis.EventStore" Version="$(AnabasisVersion)" />
+    <PackageReference Include="Anabasis.EventStore.AspNet" Version="$(AnabasisVersion)" />
+    <PackageReference Include="Anabasis.EventStore.Snapshot.SQLServer" Version="$(AnabasisVersion)" />
+    <PackageReference Include="Anabasis.RabbitMQ" Version="$(AnabasisVersion)" />
+  </ItemGroup>
+  
+</Project>

@@ -1,0 +1,87 @@
+version: '3.2'
+ 
+services:
+  sqlserver:
+    hostname: sqlserver
+    container_name: sqlserver
+    image: "mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04"
+    environment:
+       SA_PASSWORD: "Your_password123"
+       ACCEPT_EULA: "Y"
+    ports:
+      - "5434:1433"
+  rabbitmq:
+    hostname: rabbitmq
+    container_name: rabbitmq
+    image: docker.io/bitnami/rabbitmq:3.9
+    ports:
+      - '4369:4369'
+      - '5551:5551'
+      - '5552:5552'
+      - '5672:5672'
+      - '25672:25672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_SECURE_PASSWORD=yes
+      - RABBITMQ_USERNAME=username
+      - RABBITMQ_PASSWORD=password
+      - RABBITMQ_PLUGINS= rabbitmq_delayed_message_exchange;rabbitmq_management
+      - RABBITMQ_COMMUNITY_PLUGINS= https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/3.9.0/rabbitmq_delayed_message_exchange-3.9.0.ez
+    volumes:
+      - 'rabbitmq_data:/bitnami/rabbitmq/mnesia'
+  eventstore:
+    hostname: eventstore
+    container_name: eventstore
+    image: eventstore/eventstore:21.10.1-bionic
+    environment:
+      - EVENTSTORE_CLUSTER_SIZE=1
+      - EVENTSTORE_RUN_PROJECTIONS=All
+      - EVENTSTORE_START_STANDARD_PROJECTIONS=true
+      - EVENTSTORE_EXT_TCP_PORT=1113
+      - EVENTSTORE_HTTP_PORT=2113
+      - EVENTSTORE_INSECURE=true
+      - EVENTSTORE_ENABLE_EXTERNAL_TCP=true
+      - EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP=true
+      - EVENTSTORE_MEM_DB=true
+    ports:
+      - "1113:1113"
+      - "2113:2113"
+
+  tradeactor:
+    hostname: tradeactor
+    container_name: tradeactor
+    image: thomasraynal/anabasisdemo-anabasis-demo-trade-actor:9-master
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+
+  marketdataactor:
+    hostname: marketdataactor
+    container_name: marketdataactor
+    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-actor:9-master
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+
+  tradeupdateactor:
+    hostname: tradeupdateactor
+    container_name: tradeupdateactor
+    image: thomasraynal/anabasisdemo-anabasis-demo-trade-update-actor:9-master
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+
+  marketdatabus:
+    hostname: marketdatabus
+    container_name: marketdatabus
+    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-bus:9-master
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+
+  tradeapi:
+    hostname: tradeapi
+    container_name: tradeapi
+    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-bus:9-master
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+      
+volumes:
+  rabbitmq_data:
+    driver: local

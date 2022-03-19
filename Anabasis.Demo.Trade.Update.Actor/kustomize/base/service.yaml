@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    release: "28"
+    app: anabasisdemo-anabasis-demo-trade-update-actor
+    group: anabasisdemo
+  name: svc-anabasisdemo-anabasis-demo-trade-update-actor
+  namespace: anabasisdemo
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: anabasisdemo-anabasis-demo-trade-update-actor
+    release: "28"
+  type: ClusterIP

@@ -1,0 +1,20 @@
+{
+  "demoConfigurationOptions": {
+    "shouldRandomlyThrow": false,
+    "marketDataFrequencyIntervalInMilliseconds": 3000
+  },
+  "rabbitMqConnectionOptions": {
+    "hostName": "rabbitmq.default.svc.cluster.local",
+    "username": "guest",
+    "password": "guest"
+  },
+  "eventStoreConnectionOptions": {
+    "hostName": "svc-eventstore.eventstore.svc.cluster.local",
+    "username": "admin",
+    "password": "changeit",
+    "disableAuthentication": true
+  },
+  "sqlServerSnapshotStoreOptions": {
+    "connectionString": "Server=tcp:sqlserver,5434;Initial Catalog=tempdb;Persist Security Info=False;User ID=SA;Password=Your_password123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;"
+  }
+}
