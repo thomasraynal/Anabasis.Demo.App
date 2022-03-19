@@ -79,5 +79,6 @@ packages/
 config.app.dockercompose.json
 config.app.production.json
 BuildAndDeploy_PROD.cmd
+Build_PROD.cmd
 /artifacts
 

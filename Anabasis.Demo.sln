@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabasis.Demo.Common", "Ana
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DAA43B7-8EBB-43AA-AA4F-1433A676AC0F}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Build_PROD.cmd = Build_PROD.cmd
 		BuildAndDeploy.cmd = BuildAndDeploy.cmd
 		BuildAndDeploy_PROD.cmd = BuildAndDeploy_PROD.cmd
 		configs\config.app.dockercompose.json = configs\config.app.dockercompose.json

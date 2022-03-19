@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="config.app.dockercompose.json" />
-    <None Remove="config.app.production.json" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Content Include="..\configs\config.app.dockercompose.json" Link="config.app.dockercompose.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\configs\config.app.production.json" Link="config.app.production.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\configs\config.group.dockercompose.json" Link="config.group.dockercompose.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -19,12 +20,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\configs\config.group.production.json" Link="config.group.production.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config.app.dockercompose.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config.app.production.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -41,11 +36,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Anabasis.Demo.Common\Anabasis.Demo.Common.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Resource Include="config.app.dockercompose.json" />
-      <Resource Include="config.app.production.json" />
     </ItemGroup>
  
 
