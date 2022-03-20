@@ -24,10 +24,18 @@ namespace Anabasis.Demo.Api
                                     typeof(TradeValueChanged)
                     });
 
+                    var marketDataEventHandler = new DefaultEventTypeProvider<MarketData>(() => new[] {
+                                    typeof(MarketDataChanged)
+                    });
+
                     serviceCollection.AddWorld(eventStoreConnectionOptions.ConnectionString, connectionSettingsBuilder)
 
                                     .AddEventStoreStatefulActor<TradeSink, Trade>(ActorConfiguration.Default)
                                         .WithReadAllFromStartCache(eventTypeProvider: tradeEventHandler)
+                                        .CreateActor()
+
+                                     .AddEventStoreStatefulActor<MarketDataSink, MarketData>(ActorConfiguration.Default)
+                                        .WithReadAllFromStartCache(eventTypeProvider: marketDataEventHandler)
                                         .CreateActor();
 
                 },

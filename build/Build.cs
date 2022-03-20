@@ -35,7 +35,7 @@ class Build : BaseAnabasisBuild
 
     public static int Main()
     {
-        return Execute<Build>(build => build.GenerateKubernetesYamlNoBuild);
+        return Execute<Build>(build => build.DeployToKubernetes);
     }
 
 }

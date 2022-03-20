@@ -1,0 +1,1 @@
+nuke GenerateKubernetesYamlNoBuild --DockerRegistryServer "" --DockerRegistryUserName "" --DockerRegistryPassword  "" --BuildId 1234 --AnabasisBuildEnvironment "Production" --KubeConfigPath "C:\XXXX"
