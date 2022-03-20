@@ -50,28 +50,28 @@ services:
   tradeactor:
     hostname: tradeactor
     container_name: tradeactor
-    image: thomasraynal/anabasisdemo-anabasis-demo-trade-actor:30-master
+    image: thomasraynal/anabasisdemo-anabasis-demo-trade-actor:31-master
     environment:
       - ASPNETCORE_ENVIRONMENT=DockerCompose
 
   marketdataactor:
     hostname: marketdataactor
     container_name: marketdataactor
-    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-actor:30-master
+    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-actor:31-master
     environment:
       - ASPNETCORE_ENVIRONMENT=DockerCompose
 
   tradeupdateactor:
     hostname: tradeupdateactor
     container_name: tradeupdateactor
-    image: thomasraynal/anabasisdemo-anabasis-demo-trade-update-actor:30-master
+    image: thomasraynal/anabasisdemo-anabasis-demo-trade-update-actor:31-master
     environment:
       - ASPNETCORE_ENVIRONMENT=DockerCompose
 
   marketdatabus:
     hostname: marketdatabus
     container_name: marketdatabus
-    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-bus:30-master
+    image: thomasraynal/anabasisdemo-anabasis-demo-marketdata-bus:31-master
     environment:
       - ASPNETCORE_ENVIRONMENT=DockerCompose
 
@@ -80,7 +80,7 @@ services:
     ports:
       - "80:80"
     container_name: tradeapi
-    image: thomasraynal/anabasisdemo-anabasis-demo-trade-api:30-master
+    image: thomasraynal/anabasisdemo-anabasis-demo-trade-api:31-master
     environment:
       - ASPNETCORE_ENVIRONMENT=DockerCompose
       

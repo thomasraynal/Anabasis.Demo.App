@@ -29,7 +29,7 @@ namespace Anabasis.Demo.Api
         public IActionResult GetOneTrade(string tradeId)
         {
             var trade = _tradeSink.State.GetCurrents().FirstOrDefault(trade => trade.EntityId == tradeId);
-            return Ok();
+            return Ok(trade);
         }
 
     }
