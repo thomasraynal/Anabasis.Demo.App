@@ -18,7 +18,7 @@ namespace Anabasis.Demo.Common.Event
             double tradePrice,
             double amount,
             Guid correlationId
-            ) : base(correlationId, tradeId)
+            ) : base(tradeId,correlationId)
         {
             Counterparty = counterparty;
             Desk = desk;

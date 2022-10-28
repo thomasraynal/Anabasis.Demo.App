@@ -1,7 +1,6 @@
 {
   "appConfigurationOptions": {
     "applicationName": "MarketDataActor",
-    "sentryDsn": "fake",
     "apiVersion": "1.0"
   }
 }

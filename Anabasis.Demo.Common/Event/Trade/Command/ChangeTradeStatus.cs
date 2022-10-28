@@ -11,7 +11,7 @@ namespace Anabasis.Demo.Common.Event
     {
         public TradeStatus Status { get; set; }
 
-        public ChangeTradeStatus(string tradeId, TradeStatus tradeStatus, Guid correlationId) : base(correlationId, tradeId)
+        public ChangeTradeStatus(string tradeId, TradeStatus tradeStatus, Guid correlationId) : base(tradeId, correlationId)
         {
             Status = tradeStatus;
         }

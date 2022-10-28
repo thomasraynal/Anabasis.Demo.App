@@ -1,7 +1,6 @@
 {
   "appConfigurationOptions": {
     "applicationName": "MarketDataBus",
-    "sentryDsn": "fake",
     "apiVersion": "1.0"
   }
 }

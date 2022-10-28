@@ -107,7 +107,7 @@ namespace Anabasis.Demo.Common.Actor
                            Bid = currentPrice.Bid,
                            Offer = currentPrice.Offer
                        };
-
+                      
                        this.EmitRabbitMq(marketDataChanged, exchange);
 
                        Logger.LogInformation($"{marketDataChanged} - {exchange}");

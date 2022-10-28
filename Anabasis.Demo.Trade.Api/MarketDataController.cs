@@ -22,13 +22,13 @@ namespace Anabasis.Demo.Api
         [HttpGet]
         public IActionResult GetTradedCurrencyPairs()
         {
-            return Ok(_marketDataSink.State.GetCurrents());
+            return Ok(_marketDataSink.GetCurrents());
         }
 
         [HttpGet("{id}")]
         public IActionResult GetOneTradedCurrencyPair(string currencyId)
         {
-            var currencyPair = _marketDataSink.State.GetCurrent(currencyId);
+            var currencyPair = _marketDataSink.GetCurrent(currencyId);
             return Ok(currencyPair);
         }
 

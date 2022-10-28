@@ -1,7 +1,6 @@
 {
   "appConfigurationOptions": {
     "applicationName": "TradeActor",
-    "sentryDsn": "fake",
     "apiVersion": "1.0"
   }
 }

@@ -7,6 +7,8 @@ using Anabasis.EventStore.AspNet;
 using Microsoft.AspNetCore.Hosting;
 using Anabasis.Demo.Common;
 using Anabasis.RabbitMQ;
+using Anabasis.EventStore.Cache;
+using EventStore.ClientAPI;
 
 namespace Anabasis.Demo
 {
@@ -31,11 +33,12 @@ namespace Anabasis.Demo
 
                         serviceCollection.AddWorld(eventStoreConnectionOptions.ConnectionString, connectionSettingsBuilder)
 
-                                        .AddEventStoreStatefulActor<TradeValueUpdateService, Trade>(ActorConfiguration.Default)
-                                            .WithReadAllFromStartCache(eventTypeProvider: tradeEventHandler)
+                                        .AddEventStoreStatefulActor<TradeValueUpdateService, Trade, AllStreamsCatchupCacheConfiguration > (
+                                                eventTypeProvider: tradeEventHandler,
+                                                getAggregateCacheConfiguration: (conf) => conf.Checkpoint = Position.Start)
                                             .WithBus<IEventStoreBus>((actor, bus) =>
                                             {
-                                                actor.SubscribeFromEndToAllStreams(eventTypeProvider: marketDataEventHandler);
+                                                actor.SubscribeToAllStreams(Position.End, eventTypeProvider: marketDataEventHandler);
                                             })
                                             .CreateActor()
 

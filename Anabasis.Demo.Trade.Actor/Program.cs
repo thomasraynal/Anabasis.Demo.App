@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Anabasis.Demo.Common;
+using Anabasis.EventStore.Cache;
+using EventStore.ClientAPI;
 
 namespace Anabasis.Demo
 {
@@ -48,18 +50,19 @@ namespace Anabasis.Demo
                             typeof(TradeValueChanged)
                         });
 
+
                         serviceCollection.AddWorld(eventStoreConnectionOptions.ConnectionString, connectionSettingsBuilder)
 
-                                        .AddEventStoreStatefulActor<TradeActor, Trade>(ActorConfiguration.Default)
-                                            .WithReadAllFromStartCache(
-                                                eventTypeProvider: tradeEventHandler,
-                                                catchupEventStoreCacheConfigurationBuilder: (configuration) =>
+                                        .AddEventStoreStatefulActor<TradeActor,Trade, AllStreamsCatchupCacheConfiguration>(
+                                                tradeEventHandler,
+                                                getAggregateCacheConfiguration : (configuration) =>
                                                 {
+                                                    configuration.Checkpoint = Position.Start;
                                                     configuration.UseSnapshot = !isProduction;
                                                 })
                                             .WithBus<IEventStoreBus>((actor, bus) =>
                                             {
-                                                actor.SubscribeFromEndToAllStreams(eventTypeProvider: tradeCommandHandler);
+                                                actor.SubscribeToAllStreams(Position.End, eventTypeProvider: tradeCommandHandler);
                                             })
                                             .CreateActor();
 

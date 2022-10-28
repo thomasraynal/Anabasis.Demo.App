@@ -12,7 +12,7 @@ namespace Anabasis.Demo.Common.Event
         public double MarketPrice { get; set; }
         public double PercentFromMarket { get; set; }
 
-        public ChangeTradeValue(string tradeId, double marketPrice, double percentFromMarket, Guid correlationId) : base(correlationId, tradeId)
+        public ChangeTradeValue(string tradeId, double marketPrice, double percentFromMarket, Guid correlationId) : base(tradeId, correlationId)
         {
             MarketPrice = marketPrice;
             PercentFromMarket = percentFromMarket;

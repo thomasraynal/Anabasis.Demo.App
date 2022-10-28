@@ -5,6 +5,7 @@ using Anabasis.EventStore.AspNet;
 using Microsoft.AspNetCore.Hosting;
 using Anabasis.Demo.Common;
 using Anabasis.RabbitMQ;
+using Anabasis.EventStore;
 
 namespace Anabasis.Demo
 {
@@ -23,6 +24,7 @@ namespace Anabasis.Demo
 
                                         .AddStatelessActor<MarketDataGenerator>(ActorConfiguration.Default)
                                             .WithBus<IRabbitMqBus>()
+                                            .WithBus<IEventStoreBus>()
                                             .CreateActor();
                     },
                     configureApplicationBuilder: (anabasisAppContext, app) =>

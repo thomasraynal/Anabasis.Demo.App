@@ -6,7 +6,7 @@ namespace Anabasis.Demo.Common.Event
 {
     public class MarketDataQuoteChanged : BaseRabbitMqEvent
     {
-        public MarketDataQuoteChanged(Guid eventID, Guid correlationId) : base(eventID, correlationId)
+        public MarketDataQuoteChanged(Guid eventID, Guid correlationId) : base(null, eventID, correlationId)
         {
 
         }

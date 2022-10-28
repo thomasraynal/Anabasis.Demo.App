@@ -2,6 +2,7 @@
 using Anabasis.Demo.Common;
 using Anabasis.Demo.Common.Actor;
 using Anabasis.Demo.Common.Event;
+using Anabasis.EventStore.Cache;
 using Anabasis.EventStore.Standalone;
 using DynamicData;
 using DynamicData.Binding;
@@ -77,29 +78,35 @@ namespace Anabasis.Demo.Desktop
                     typeof(MarketDataChanged)
                 });
 
-            _tradeSink = EventStoreStatefulActorBuilder<TradeActor, Trade, DemoSystemRegistry>
-                                            .Create(eventStoreConnectionString, ConnectionSettings.Create(), ActorConfiguration.Default)
-                                            .WithReadAllFromStartCache(
-                                                eventTypeProvider: tradeEventProvdider,
-                                                getCatchupEventStoreCacheConfigurationBuilder: (configuration) =>
-                                                {
-                                                    configuration.KeepAppliedEventsOnAggregate = true;
-                                                })
+            var allStreamsCatchupCacheConfiguration = new AllStreamsCatchupCacheConfiguration()
+            {
+                KeepAppliedEventsOnAggregate = true,
+                Checkpoint = Position.Start
+            };
+
+            _tradeSink = EventStoreStatefulActorBuilder<TradeActor,AllStreamsCatchupCacheConfiguration, Trade, DemoSystemRegistry>
+                                            .Create(eventStoreConnectionString,
+                                                    ConnectionSettings.Create(),
+                                                    allStreamsCatchupCacheConfiguration,
+                                                    ActorConfiguration.Default, 
+                                                    tradeEventProvdider)
                                             .Build();
 
-            _marketDataSink = EventStoreStatefulActorBuilder<MarketDataActor, MarketData, DemoSystemRegistry>
-                                            .Create(eventStoreConnectionString, ConnectionSettings.Create(), ActorConfiguration.Default)
-                                            .WithReadAllFromStartCache(
-                                                eventTypeProvider: marketDataEventHandler)
+            _marketDataSink = EventStoreStatefulActorBuilder<MarketDataActor,AllStreamsCatchupCacheConfiguration, MarketData, DemoSystemRegistry>
+                                            .Create(eventStoreConnectionString,
+                                                    ConnectionSettings.Create(),
+                                                    allStreamsCatchupCacheConfiguration, 
+                                                    ActorConfiguration.Default, 
+                                                    marketDataEventHandler)
                                             .Build();
 
-            _marketDataSink.State.AsObservableCache().Connect()
+            _marketDataSink.AsObservableCache().Connect()
                                  .ObserveOn(SynchronizationContext.Current)
                                  .Transform(marketData => new MarketDataViewModel(marketData))
                                  .Bind(MarketData)
                                  .Subscribe();
 
-            var tradeObservableCache2 = _tradeSink.State.AsObservableCache()
+            var tradeObservableCache2 = _tradeSink.AsObservableCache()
                                 .Connect()
                                 .Sort(SortExpressionComparer<Trade>.Descending(p => p.Timestamp))
                                 .ObserveOn(SynchronizationContext.Current)
@@ -107,7 +114,7 @@ namespace Anabasis.Demo.Desktop
                                 .Bind(Trades)
                                 .Subscribe();
 
-            var tradeObservableCache = _tradeSink.State.AsObservableCache()
+            var tradeObservableCache = _tradeSink.AsObservableCache()
                                 .Connect()
                                 .ObserveOn(SynchronizationContext.Current)
                                 .Group(trade => trade.CurrencyPair)

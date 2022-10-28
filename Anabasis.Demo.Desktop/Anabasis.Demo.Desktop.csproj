@@ -2,18 +2,21 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Anabasis.EventStore.Standalone"  Version="$(AnabasisVersion)" />
     <PackageReference Include="DynamicData.ReactiveUI" Version="6.11.0.2613" />
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="ReactiveUI" Version="17.1.50" />
-    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="ReactiveUI" Version="18.3.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Anabasis.Common" Version="$(AnabasisVersion)" />
+	  <PackageReference Include="Anabasis.EventStore.Standalone.Embedded" Version="$(AnabasisVersion)" />
   </ItemGroup>
 
   <ItemGroup>

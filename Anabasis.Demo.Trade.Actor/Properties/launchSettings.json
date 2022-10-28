@@ -3,7 +3,7 @@
     "Anabasis.Demo.Trade.Actor": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "DockerCompose"
+        "ASPNETCORE_ENVIRONMENT": "Debug"
       }
     }
   }

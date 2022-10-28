@@ -198,8 +198,8 @@ namespace Anabasis.Demo.Common.Actor
                 });
 
 
-            AddDisposable(tradeCloser);
-            AddDisposable(tradeGenerator);
+            AddToCleanup(tradeCloser);
+            AddToCleanup(tradeGenerator);
 
         }
     }

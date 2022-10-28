@@ -32,7 +32,7 @@ namespace Anabasis.Demo.Desktop
 
         public TradeEventViewModel(int position, IEvent @event)
         {
-            Name = @event.Name;
+            Name = @event.EventName;
             Position = position;
             Timestamp = @event.Timestamp;
             Data = @event.ToJson();
